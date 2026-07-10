@@ -7,7 +7,10 @@ import {
 
 import heroImage from "@/assets/images/hero-community.jpg";
 import mapImage from "@/assets/images/global-map.png";
-import logoImage from "@/assets/images/gssio-logo.png";
+import coverUrbanMigration from "@/assets/images/cover-urban-migration.png";
+import coverClimateResilience from "@/assets/images/cover-climate-resilience.png";
+import coverGenderParity from "@/assets/images/cover-gender-parity.png";
+import coverSustainabilityIndex from "@/assets/images/cover-sustainability-index.png";
 import projEdu from "@/assets/images/project-edu.jpg";
 import projClimate from "@/assets/images/project-climate.jpg";
 import projEmpower from "@/assets/images/project-empower.jpg";
@@ -252,7 +255,7 @@ export default function Home() {
       </section>
 
       {/* 7. Research & Publications */}
-      <section className="py-24 bg-background">
+      <section id="research" className="py-24 bg-background">
         <div className="max-w-[1280px] mx-auto px-4 lg:px-16">
           <div className="text-center mb-16">
             <h2 className="text-4xl lg:text-5xl font-bold mb-4 text-foreground">Evidence-Based Research</h2>
@@ -261,17 +264,14 @@ export default function Home() {
           
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {[
-              { title: "Sustainability Index 2024", accent: "bg-primary" }, 
-              { title: "Water Access Report", accent: "bg-secondary" }, 
-              { title: "Global Education Policy", accent: "bg-[#5d4300]" }, 
-              { title: "Climate Tech Horizons", accent: "bg-primary" }
+              { title: "Sustainability Index 2024", img: coverSustainabilityIndex }, 
+              { title: "Urban Migration Patterns 2030", img: coverUrbanMigration }, 
+              { title: "Gender Parity in Emerging Economies", img: coverGenderParity }, 
+              { title: "Climate Resilience Framework", img: coverClimateResilience }
             ].map((report, i) => (
               <div key={i} className="group cursor-pointer">
-                <div className="aspect-[3/4] bg-[#e7eeff] border border-border shadow-sm rounded-lg overflow-hidden mb-4 relative flex flex-col items-center justify-center p-6 text-center">
-                  <div className={`absolute top-0 left-0 right-0 h-2 ${report.accent}`} />
-                  <img src={logoImage} alt="GSSIO logo" className="w-16 h-16 object-contain mb-6 group-hover:scale-105 transition-transform duration-500" />
-                  <span className="text-xs font-bold uppercase tracking-widest text-muted-foreground mb-2">GSSIO</span>
-                  <h4 className="font-bold text-base leading-tight text-foreground">{report.title}</h4>
+                <div className="aspect-[3/4] bg-[#e7eeff] border border-border shadow-sm rounded-lg overflow-hidden mb-4 relative flex items-center justify-center">
+                  <img src={report.img} alt={report.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
                   <div className="absolute inset-0 bg-foreground/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center backdrop-blur-[2px]">
                     <Button variant="secondary" className="bg-white text-primary hover:bg-gray-50 font-semibold shadow-xl">Download PDF</Button>
                   </div>

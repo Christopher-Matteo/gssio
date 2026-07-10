@@ -28,9 +28,9 @@ export function Navbar() {
       <header className="sticky top-0 z-50 w-full bg-background/80 backdrop-blur-md border-b transition-all duration-300 shadow-sm">
         <div className="container mx-auto px-4 h-20 flex items-center justify-between max-w-[1280px]">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-3 z-50">
+          <Link href="/" className="flex items-center gap-1 z-50">
             <img src={logoImage} alt="GSSIO Logo" className="h-14 w-auto object-contain" />
-            <span className="font-bold text-2xl tracking-tight text-primary hidden sm:inline-block">
+            <span className="font-bold text-2xl tracking-tight text-primary hidden sm:inline-block -ml-1">
               GSSIO
             </span>
           </Link>
