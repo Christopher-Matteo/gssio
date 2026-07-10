@@ -1,4 +1,5 @@
 import { Link } from "wouter";
+import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { 
   ArrowRight, Globe2, BookOpen, Droplets, HeartHandshake, Sprout, 
@@ -6,6 +7,7 @@ import {
 } from "lucide-react";
 
 import heroImage from "@/assets/images/hero-community.jpg";
+import heroSolar from "@/assets/images/hero-solar.jpg";
 import mapImage from "@/assets/images/global-map.png";
 import coverUrbanMigration from "@/assets/images/cover-urban-migration.png";
 import coverClimateResilience from "@/assets/images/cover-climate-resilience.png";
@@ -21,21 +23,40 @@ import news3 from "@/assets/images/news_3.jpg";
 import spotlightBg from "@/assets/images/spotlight-bg.jpg";
 import volunteerAction from "@/assets/images/volunteer-action.jpg";
 
+const heroSlides = [
+  { src: heroImage, alt: "GSSIO team members working together with a local community" },
+  { src: heroSolar, alt: "GSSIO partnership team installing solar panels with a local community" },
+];
+
 export default function Home() {
+  const [activeSlide, setActiveSlide] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setActiveSlide((prev) => (prev + 1) % heroSlides.length);
+    }, 5000);
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <div className="flex flex-col font-sans">
       {/* 1. Hero Banner */}
       <section className="relative h-[870px] w-full overflow-hidden">
         <div className="absolute inset-0 z-0">
-          <img 
-            src={heroImage} 
-            alt="GSSIO team members working together with a local community" 
-            className="w-full h-full object-cover opacity-70 animate-in fade-in duration-1000"
-          />
-          <div className="absolute inset-0 bg-foreground/25" />
+          {heroSlides.map((slide, index) => (
+            <img
+              key={slide.src}
+              src={slide.src}
+              alt={slide.alt}
+              className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ease-in-out ${
+                index === activeSlide ? "opacity-70 z-10" : "opacity-0 z-0"
+              }`}
+            />
+          ))}
+          <div className="absolute inset-0 bg-foreground/25 z-20" />
         </div>
         
-        <div className="relative z-10 h-full max-w-[1280px] mx-auto px-4 lg:px-16 flex flex-col justify-center text-white">
+        <div className="relative z-30 h-full max-w-[1280px] mx-auto px-4 lg:px-16 flex flex-col justify-center text-white">
           <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight max-w-4xl mb-6 leading-[1.1] animate-in slide-in-from-bottom-8 duration-700">
             Empowering People. Transforming Communities. Sustaining the Future.
           </h1>
