@@ -30,8 +30,9 @@ export default function Home() {
           <img 
             src={heroImage} 
             alt="GSSIO team members working together with a local community" 
-            className="w-full h-full object-cover animate-in fade-in duration-1000"
+            className="w-full h-full object-cover opacity-70 animate-in fade-in duration-1000"
           />
+          <div className="absolute inset-0 bg-foreground/25" />
         </div>
         
         <div className="relative z-10 h-full max-w-[1280px] mx-auto px-4 lg:px-16 flex flex-col justify-center text-white">
