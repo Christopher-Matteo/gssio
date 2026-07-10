@@ -6,15 +6,12 @@ import {
 } from "lucide-react";
 
 import heroImage from "@/assets/images/hero-community.jpg";
-import mapImage from "@/assets/images/global-map.jpg";
+import mapImage from "@/assets/images/global-map.png";
+import logoImage from "@/assets/images/gssio-logo.png";
 import projEdu from "@/assets/images/project-edu.jpg";
 import projClimate from "@/assets/images/project-climate.jpg";
 import projEmpower from "@/assets/images/project-empower.jpg";
 import storyPortrait from "@/assets/images/story-portrait.jpg";
-import cover1 from "@/assets/images/cover_1.jpg";
-import cover2 from "@/assets/images/cover_2.jpg";
-import cover3 from "@/assets/images/cover_3.jpg";
-import cover4 from "@/assets/images/cover_4.jpg";
 import news1 from "@/assets/images/news_1.jpg";
 import news2 from "@/assets/images/news_2.jpg";
 import news3 from "@/assets/images/news_3.jpg";
@@ -126,7 +123,7 @@ export default function Home() {
           <div className="relative bg-[#f0f3ff] rounded-3xl p-8 lg:p-12 border border-border overflow-hidden">
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 items-center">
               <div className="lg:col-span-2 relative flex items-center justify-center min-h-[300px] overflow-hidden rounded-2xl">
-                <img src={mapImage} alt="Global map" className="w-full h-full object-cover mix-blend-multiply opacity-80" />
+                <img src={mapImage} alt="Global connectivity map showing GSSIO's worldwide network" className="w-full h-full object-cover" />
               </div>
               <div className="space-y-6 relative z-10">
                 <div className="bg-white p-6 rounded-xl border border-border shadow-sm">
@@ -264,14 +261,17 @@ export default function Home() {
           
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {[
-              { title: "Sustainability Index 2024", img: cover1 }, 
-              { title: "Water Access Report", img: cover2 }, 
-              { title: "Global Education Policy", img: cover3 }, 
-              { title: "Climate Tech Horizons", img: cover4 }
+              { title: "Sustainability Index 2024", accent: "bg-primary" }, 
+              { title: "Water Access Report", accent: "bg-secondary" }, 
+              { title: "Global Education Policy", accent: "bg-[#5d4300]" }, 
+              { title: "Climate Tech Horizons", accent: "bg-primary" }
             ].map((report, i) => (
               <div key={i} className="group cursor-pointer">
-                <div className="aspect-[3/4] bg-[#e7eeff] border border-border shadow-sm rounded-lg overflow-hidden mb-4 relative flex items-center justify-center">
-                  <img src={report.img} alt={report.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                <div className="aspect-[3/4] bg-[#e7eeff] border border-border shadow-sm rounded-lg overflow-hidden mb-4 relative flex flex-col items-center justify-center p-6 text-center">
+                  <div className={`absolute top-0 left-0 right-0 h-2 ${report.accent}`} />
+                  <img src={logoImage} alt="GSSIO logo" className="w-16 h-16 object-contain mb-6 group-hover:scale-105 transition-transform duration-500" />
+                  <span className="text-xs font-bold uppercase tracking-widest text-muted-foreground mb-2">GSSIO</span>
+                  <h4 className="font-bold text-base leading-tight text-foreground">{report.title}</h4>
                   <div className="absolute inset-0 bg-foreground/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center backdrop-blur-[2px]">
                     <Button variant="secondary" className="bg-white text-primary hover:bg-gray-50 font-semibold shadow-xl">Download PDF</Button>
                   </div>

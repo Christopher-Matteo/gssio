@@ -29,7 +29,7 @@ export function Navbar() {
         <div className="container mx-auto px-4 h-20 flex items-center justify-between max-w-[1280px]">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-3 z-50">
-            <img src={logoImage} alt="GSSIO Logo" className="h-10 w-auto object-contain" />
+            <img src={logoImage} alt="GSSIO Logo" className="h-14 w-auto object-contain" />
             <span className="font-bold text-2xl tracking-tight text-primary hidden sm:inline-block">
               GSSIO
             </span>
