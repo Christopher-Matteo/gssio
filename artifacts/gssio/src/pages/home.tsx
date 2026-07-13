@@ -96,7 +96,7 @@ export default function Home() {
       <section className="py-24 bg-background">
         <div className="max-w-[1280px] mx-auto px-4 lg:px-16">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
-            <div className="lg:col-span-4 sticky top-32">
+            <div className="lg:col-span-4 lg:sticky lg:top-32">
               <span className="text-primary font-medium text-sm uppercase tracking-widest block mb-2">Our Mission</span>
               <h2 className="text-4xl lg:text-5xl font-bold mb-6 text-foreground leading-tight">Comprehensive Focus Areas</h2>
               <p className="text-lg text-muted-foreground mb-10 leading-relaxed">
