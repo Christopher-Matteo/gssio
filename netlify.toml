@@ -1,0 +1,8 @@
+[build]
+  command = "pnpm --filter @workspace/gssio build"
+  publish = "artifacts/gssio/dist"
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
