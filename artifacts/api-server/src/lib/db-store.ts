@@ -1,7 +1,9 @@
 import fs from "fs";
 import path from "path";
 
-const DB_FILE = path.resolve(__dirname, "../../data/db.json");
+const DB_FILE = process.env.VERCEL
+  ? path.resolve("/tmp/db.json")
+  : path.resolve(__dirname, "../../data/db.json");
 
 export interface Banner {
   text: string;
