@@ -23,7 +23,7 @@ export function Navbar() {
   return (
     <>
       <div className="bg-primary text-white py-2 px-4 text-center text-sm font-medium">
-        Join our upcoming Global Sustainability Summit 2024. <a href="#" className="underline font-bold ml-1">Register now.</a>
+        Join our upcoming Global Sustainability Summit 2024. <Link href="/summit" className="underline font-bold ml-1">Register now.</Link>
       </div>
       <header className="sticky top-0 z-[100] w-full bg-[#f8fafc] border-b transition-all duration-300 shadow-sm">
         <div className="container mx-auto px-4 h-20 flex items-center justify-between max-w-[1280px]">

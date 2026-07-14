@@ -1,3 +1,4 @@
+import { Link } from "wouter";
 import { Globe2, BookOpen, Sprout, Coins, Droplets, Shield, HeartHandshake } from "lucide-react";
 
 export default function WhatWeDo() {
@@ -37,9 +38,11 @@ export default function WhatWeDo() {
                   <li className="flex items-center gap-2"><div className="w-2 h-2 rounded-full bg-secondary"></div> Community education programs</li>
                   <li className="flex items-center gap-2"><div className="w-2 h-2 rounded-full bg-secondary"></div> Policy advocacy</li>
                 </ul>
-                <button className="text-primary font-bold hover:text-secondary hover:underline">
-                  Read related reports &rarr;
-                </button>
+                <Link href="/impact-reports">
+                  <button className="text-primary font-bold hover:text-secondary hover:underline">
+                    Read related reports &rarr;
+                  </button>
+                </Link>
               </div>
             </div>
           ))}

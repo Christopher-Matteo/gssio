@@ -1,3 +1,4 @@
+import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
 import { Users, Briefcase, Handshake } from "lucide-react";
 
@@ -19,9 +20,11 @@ export default function GetInvolved() {
             <p className="text-muted-foreground mb-8 flex-grow">
               Join our network of over 12,000 active volunteers supporting campaigns locally and internationally.
             </p>
-            <Button className="w-full bg-primary hover:bg-primary/90 text-white font-bold">
-              View Opportunities
-            </Button>
+            <Link href="/get-involved/opportunities" className="w-full">
+              <Button className="w-full bg-primary hover:bg-primary/90 text-white font-bold">
+                View Opportunities
+              </Button>
+            </Link>
           </div>
 
           <div className="bg-white border rounded-sm p-8 text-center flex flex-col items-center">
@@ -32,9 +35,11 @@ export default function GetInvolved() {
             <p className="text-muted-foreground mb-8 flex-grow">
               Bring your expertise to our global teams. We are always looking for passionate professionals.
             </p>
-            <Button className="w-full bg-primary hover:bg-primary/90 text-white font-bold">
-              Open Positions
-            </Button>
+            <Link href="/get-involved/positions" className="w-full">
+              <Button className="w-full bg-primary hover:bg-primary/90 text-white font-bold">
+                Open Positions
+              </Button>
+            </Link>
           </div>
 
           <div className="bg-white border rounded-sm p-8 text-center flex flex-col items-center">
@@ -45,9 +50,11 @@ export default function GetInvolved() {
             <p className="text-muted-foreground mb-8 flex-grow">
               Collaborate with us. We work with corporations, governments, and other NGOs to scale our impact.
             </p>
-            <Button className="w-full bg-primary hover:bg-primary/90 text-white font-bold">
-              Become a Partner
-            </Button>
+            <Link href="/get-involved/partner" className="w-full">
+              <Button className="w-full bg-primary hover:bg-primary/90 text-white font-bold">
+                Become a Partner
+              </Button>
+            </Link>
           </div>
         </div>
       </div>

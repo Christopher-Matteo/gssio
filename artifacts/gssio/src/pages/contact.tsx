@@ -26,6 +26,8 @@ export default function Contact() {
                 <Phone className="w-6 h-6 shrink-0 text-secondary" />
                 <span>+41 22 730 0000</span>
               </li>
+
+              
               <li className="flex items-center gap-4">
                 <Mail className="w-6 h-6 shrink-0 text-secondary" />
                 <span>contact@gssio.org</span>

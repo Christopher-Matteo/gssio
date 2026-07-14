@@ -294,7 +294,9 @@ export default function Home() {
                 <div className="aspect-[3/4] bg-muted border border-border shadow-sm rounded-lg overflow-hidden mb-4 relative flex items-center justify-center">
                   <img src={report.img} alt={report.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
                   <div className="absolute inset-0 bg-foreground/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center backdrop-blur-[2px]">
-                    <Button variant="secondary" className="bg-white text-primary hover:bg-gray-50 font-semibold shadow-xl">Download PDF</Button>
+                    <Link href="/impact-reports">
+                      <Button variant="secondary" className="bg-white text-primary hover:bg-gray-50 font-semibold shadow-xl">Download PDF</Button>
+                    </Link>
                   </div>
                 </div>
                 <h4 className="font-bold text-sm lg:text-base leading-tight group-hover:text-primary transition-colors text-foreground">{report.title}</h4>
@@ -358,9 +360,11 @@ export default function Home() {
             <p className="text-lg text-white/90 mb-8 leading-relaxed">
               Join world leaders, climate scientists, and grassroots activists in Geneva to forge actionable frameworks for the next decade of sustainable development.
             </p>
-            <Button size="lg" className="bg-white text-primary hover:bg-gray-100 font-bold px-8 h-14 rounded-lg">
-              Register Now
-            </Button>
+            <Link href="/summit">
+              <Button size="lg" className="bg-white text-primary hover:bg-gray-100 font-bold px-8 h-14 rounded-lg">
+                Register Now
+              </Button>
+            </Link>
           </div>
         </div>
       </section>
@@ -392,9 +396,11 @@ export default function Home() {
                   <p className="text-muted-foreground text-sm leading-relaxed">{event.desc}</p>
                 </div>
                 <div className="p-6 flex items-center justify-center sm:justify-end border-t sm:border-t-0 sm:border-l border-border bg-gray-50/50">
-                  <Button variant="outline" className="border-primary text-primary hover:bg-primary hover:text-white rounded-lg px-6 w-full sm:w-auto font-semibold">
-                    Register
-                  </Button>
+                  <Link href="/summit" className="w-full sm:w-auto">
+                    <Button variant="outline" className="border-primary text-primary hover:bg-primary hover:text-white rounded-lg px-6 w-full sm:w-auto font-semibold">
+                      Register
+                    </Button>
+                  </Link>
                 </div>
               </div>
             ))}
