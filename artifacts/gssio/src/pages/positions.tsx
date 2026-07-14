@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link } from "wouter";
 import { ArrowLeft, Briefcase, MapPin, Building, ShieldCheck, HeartHandshake, Smile, CheckCircle2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -20,7 +20,7 @@ export default function Positions() {
 
   const categories = ["All", "Health", "Climate", "Operations"];
 
-  const positionsList = [
+  const defaultPos = [
     {
       title: "Senior Health Policy Advisor",
       category: "Health",
@@ -57,6 +57,19 @@ export default function Positions() {
       desc: "Steer GSSIO's global education initiatives, grow scholarship fund portfolios, and coordinate local school construction guidelines.",
     },
   ];
+
+  const [positionsList, setPositionsList] = useState<any[]>(defaultPos);
+
+  useEffect(() => {
+    fetch("/api/positions")
+      .then(res => res.json())
+      .then(data => {
+        if (Array.isArray(data) && data.length > 0) {
+          setPositionsList(data);
+        }
+      })
+      .catch(() => {});
+  }, []);
 
   const filteredPositions = activeCategory === "All" 
     ? positionsList 

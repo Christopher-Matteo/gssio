@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link } from "wouter";
 import { ArrowLeft, Users, Heart, Globe, Calendar, CheckCircle2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -18,7 +18,7 @@ export default function Opportunities() {
     message: "",
   });
 
-  const opportunitiesList = [
+  const defaultOpps = [
     {
       title: "Local Advocacy Coordinator",
       type: "Remote / Community-Based",
@@ -48,6 +48,24 @@ export default function Opportunities() {
       icon: Calendar,
     },
   ];
+
+  const [opportunitiesList, setOpportunitiesList] = useState<any[]>(defaultOpps);
+
+  useEffect(() => {
+    fetch("/api/opportunities")
+      .then(res => res.json())
+      .then(data => {
+        if (Array.isArray(data) && data.length > 0) {
+          const icons = [Users, Globe, Heart, Calendar];
+          const mapped = data.map((item, idx) => ({
+            ...item,
+            icon: icons[idx % icons.length]
+          }));
+          setOpportunitiesList(mapped);
+        }
+      })
+      .catch(() => {});
+  }, []);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target;

@@ -33,14 +33,25 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use("/api", router);
 
-// Serve static files from gssio client
+// Serve static files from gssio client and admin client
 const frontendDist = path.resolve(__dirname, "../../gssio/dist");
+const adminDist = path.resolve(__dirname, "../../gssio-admin/dist");
+
 app.use(express.static(frontendDist));
+app.use("/admin", express.static(adminDist));
 
 // Serve index.html for all other routes to support client-side routing (single page app)
 app.use((req, res, next) => {
   if (req.path.startsWith("/api")) {
     return next();
+  }
+  // Serve admin panel if route starts with /admin
+  if (req.path.startsWith("/admin")) {
+    return res.sendFile(path.resolve(adminDist, "index.html"), (err) => {
+      if (err) {
+        next();
+      }
+    });
   }
   res.sendFile(path.resolve(frontendDist, "index.html"), (err) => {
     if (err) {

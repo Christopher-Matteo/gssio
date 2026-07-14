@@ -23,27 +23,72 @@ import news3 from "@/assets/images/news_3.webp";
 import spotlightBg from "@/assets/images/spotlight-bg.webp";
 import volunteerAction from "@/assets/images/volunteer-action.webp";
 
-const heroSlides = [
+const defaultSlides = [
   { src: heroImage, alt: "GSSIO team members working together with a local community" },
   { src: heroSolar, alt: "GSSIO partnership team installing solar panels with a local community" },
 ];
 
 export default function Home() {
   const [activeSlide, setActiveSlide] = useState(0);
+  const [heroSlidesList, setHeroSlidesList] = useState(defaultSlides);
+
+  const defaultNews = [
+    { title: "GSSIO announces $50M expansion to clean energy initiatives across Sub-Saharan Africa", img: news1, date: "Oct 12, 2024" },
+    { title: "New partnership with global health organizations to deliver 1M vaccines", img: news2, date: "Oct 05, 2024" },
+    { title: "Annual Sustainability Summit concludes with historic climate pledge from 20 nations", img: news3, date: "Sep 28, 2024" }
+  ];
+  const [newsList, setNewsList] = useState(defaultNews);
+
+  const defaultEvents = [
+    { date: "15", month: "NOV", title: "Global Health Symposium 2024", loc: "Geneva, Switzerland & Virtual", desc: "Annual gathering of healthcare professionals and policymakers discussing equitable health access." },
+    { date: "02", month: "DEC", title: "Community Climate Action Workshop", loc: "Nairobi, Kenya", desc: "Hands-on workshop for local leaders focusing on sustainable agriculture and water management." },
+    { date: "18", month: "JAN", title: "Human Rights Defender Training", loc: "Virtual", desc: "Comprehensive training session on legal frameworks and advocacy strategies for grassroots organizers." }
+  ];
+  const [eventsList, setEventsList] = useState(defaultEvents);
 
   useEffect(() => {
+    fetch("/api/hero")
+      .then(res => res.json())
+      .then(data => {
+        if (Array.isArray(data) && data.length > 0) {
+          setHeroSlidesList(data.map((src: string) => ({ src, alt: "GSSIO Community Slider" })));
+        }
+      })
+      .catch(() => {});
+
+    fetch("/api/news")
+      .then(res => res.json())
+      .then(data => {
+        if (Array.isArray(data) && data.length > 0) {
+          setNewsList(data);
+        }
+      })
+      .catch(() => {});
+
+    fetch("/api/events")
+      .then(res => res.json())
+      .then(data => {
+        if (Array.isArray(data) && data.length > 0) {
+          setEventsList(data);
+        }
+      })
+      .catch(() => {});
+  }, []);
+
+  useEffect(() => {
+    if (heroSlidesList.length === 0) return;
     const interval = setInterval(() => {
-      setActiveSlide((prev) => (prev + 1) % heroSlides.length);
+      setActiveSlide((prev) => (prev + 1) % heroSlidesList.length);
     }, 5000);
     return () => clearInterval(interval);
-  }, []);
+  }, [heroSlidesList]);
 
   return (
     <div className="flex flex-col font-sans">
       {/* 1. Hero Banner */}
       <section className="relative h-[500px] sm:h-[650px] lg:h-[870px] w-full overflow-hidden">
         <div className="absolute inset-0 z-0">
-          {heroSlides.map((slide, index) => (
+          {heroSlidesList.map((slide, index) => (
             <img
               key={slide.src}
               src={slide.src}
@@ -321,11 +366,7 @@ export default function Home() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {[
-              { title: "GSSIO announces $50M expansion to clean energy initiatives across Sub-Saharan Africa", img: news1, date: "Oct 12, 2024" },
-              { title: "New partnership with global health organizations to deliver 1M vaccines", img: news2, date: "Oct 05, 2024" },
-              { title: "Annual Sustainability Summit concludes with historic climate pledge from 20 nations", img: news3, date: "Sep 28, 2024" }
-            ].map((news, i) => (
+            {newsList.map((news, i) => (
               <div key={i} className="group">
                 <div className="aspect-video bg-muted rounded-xl overflow-hidden mb-6 border border-border">
                   <img src={news.img} alt={news.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
@@ -378,11 +419,7 @@ export default function Home() {
           </div>
           
           <div className="max-w-4xl mx-auto flex flex-col gap-6">
-            {[
-              { date: "15", month: "NOV", title: "Global Health Symposium 2024", loc: "Geneva, Switzerland & Virtual", desc: "Annual gathering of healthcare professionals and policymakers discussing equitable health access." },
-              { date: "02", month: "DEC", title: "Community Climate Action Workshop", loc: "Nairobi, Kenya", desc: "Hands-on workshop for local leaders focusing on sustainable agriculture and water management." },
-              { date: "18", month: "JAN", title: "Human Rights Defender Training", loc: "Virtual", desc: "Comprehensive training session on legal frameworks and advocacy strategies for grassroots organizers." }
-            ].map((event, i) => (
+            {eventsList.map((event, i) => (
               <div key={i} className="flex flex-col sm:flex-row bg-white rounded-xl border border-border hover:shadow-md transition-shadow overflow-hidden">
                 <div className="bg-muted/50 sm:w-32 flex flex-row sm:flex-col items-center justify-center p-6 border-b sm:border-b-0 sm:border-r border-border">
                   <span className="text-3xl font-bold text-primary mr-2 sm:mr-0">{event.date}</span>

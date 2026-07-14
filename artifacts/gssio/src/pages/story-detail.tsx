@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Link, useParams } from "wouter";
 import { ArrowLeft, Clock, User, Calendar, Tag } from "lucide-react";
 import { storiesData } from "@/data/stories";
@@ -11,11 +11,21 @@ export default function StoryDetailWrapper() {
 
 function StoryDetail({ params }: { params: { id?: string } }) {
   const storyId = params.id;
-  const story = storiesData.find((s) => s.id === storyId);
+  const [stories, setStories] = useState<any[]>(storiesData);
 
   useEffect(() => {
     window.scrollTo(0, 0);
-  }, []);
+    fetch("/api/stories")
+      .then(res => res.json())
+      .then(data => {
+        if (Array.isArray(data) && data.length > 0) {
+          setStories(data);
+        }
+      })
+      .catch(() => {});
+  }, [storyId]);
+
+  const story = stories.find((s) => s.id === storyId);
 
   if (!story) {
     return (
@@ -34,7 +44,7 @@ function StoryDetail({ params }: { params: { id?: string } }) {
   }
 
   // Get related stories (excluding current one)
-  const relatedStories = storiesData
+  const relatedStories = stories
     .filter((s) => s.id !== story.id)
     .slice(0, 3);
 

@@ -1,9 +1,21 @@
+import { useState, useEffect } from "react";
 import { Link } from "wouter";
 import { ArrowRight } from "lucide-react";
 import { storiesData } from "@/data/stories";
 
 export default function Stories() {
-  const stories = storiesData;
+  const [stories, setStories] = useState(storiesData);
+
+  useEffect(() => {
+    fetch("/api/stories")
+      .then(res => res.json())
+      .then(data => {
+        if (Array.isArray(data) && data.length > 0) {
+          setStories(data);
+        }
+      })
+      .catch(() => {});
+  }, []);
 
 
   return (

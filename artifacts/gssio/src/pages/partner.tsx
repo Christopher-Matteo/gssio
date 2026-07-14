@@ -22,13 +22,32 @@ export default function Partner() {
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setFormSubmitted(true);
-    toast({
-      title: "Partnership Inquiry Submitted!",
-      description: "Our alliances team will review your proposal and respond within 5 business days.",
-    });
+    try {
+      const res = await fetch("/api/partners", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+      if (res.ok) {
+        setFormSubmitted(true);
+        toast({
+          title: "Partnership Inquiry Submitted!",
+          description: "Our alliances team will review your proposal and respond within 5 business days.",
+        });
+      } else {
+        toast({
+          title: "Submission failed",
+          description: "There was an error saving your partnership details. Please try again.",
+        });
+      }
+    } catch {
+      toast({
+        title: "Submission failed",
+        description: "Could not reach server. Please try again.",
+      });
+    }
   };
 
   return (

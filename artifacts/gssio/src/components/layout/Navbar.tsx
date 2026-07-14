@@ -1,6 +1,6 @@
 import { Link, useLocation } from "wouter";
 import { Menu, X, ChevronDown, Search, Globe } from "lucide-react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import logoImage from "@/assets/images/gssio-logo.webp";
 
@@ -17,13 +17,27 @@ const pillars = [
 export function Navbar() {
   const [location] = useLocation();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [banner, setBanner] = useState({
+    text: "Join our upcoming Global Sustainability Summit 2024.",
+    linkText: "Register now.",
+    linkUrl: "/summit"
+  });
+
+  useEffect(() => {
+    fetch("/api/banner")
+      .then(res => res.json())
+      .then(data => {
+        if (data && data.text) setBanner(data);
+      })
+      .catch(() => {});
+  }, []);
 
   const isActive = (path: string) => location === path;
 
   return (
     <>
       <div className="bg-primary text-white py-2 px-4 text-center text-sm font-medium">
-        Join our upcoming Global Sustainability Summit 2024. <Link href="/summit" className="underline font-bold ml-1">Register now.</Link>
+        {banner.text} <Link href={banner.linkUrl} className="underline font-bold ml-1">{banner.linkText}</Link>
       </div>
       <header className="sticky top-0 z-[100] w-full bg-[#f8fafc] border-b transition-all duration-300 shadow-sm">
         <div className="container mx-auto px-4 h-20 flex items-center justify-between max-w-[1280px]">
