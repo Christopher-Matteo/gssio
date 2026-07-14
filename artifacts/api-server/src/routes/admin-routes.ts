@@ -65,7 +65,7 @@ router.post("/stories", (req: Request, res: Response) => {
 
 router.put("/stories/:id", (req: Request, res: Response) => {
   const db = getData();
-  const { id } = req.params;
+  const id = req.params.id as string;
   const updatedStory = req.body as Story;
   const idx = db.stories.findIndex((s) => s.id === id);
   if (idx !== -1) {
@@ -79,7 +79,7 @@ router.put("/stories/:id", (req: Request, res: Response) => {
 
 router.delete("/stories/:id", (req: Request, res: Response) => {
   const db = getData();
-  const { id } = req.params;
+  const id = req.params.id as string;
   const filtered = db.stories.filter((s) => s.id !== id);
   if (filtered.length !== db.stories.length) {
     db.stories = filtered;
@@ -107,7 +107,7 @@ router.post("/news", (req: Request, res: Response) => {
 
 router.put("/news/:id", (req: Request, res: Response) => {
   const db = getData();
-  const { id } = req.params;
+  const id = req.params.id as string;
   const updatedNews = req.body as News;
   const idx = db.news.findIndex((n) => n.id === id);
   if (idx !== -1) {
@@ -121,7 +121,7 @@ router.put("/news/:id", (req: Request, res: Response) => {
 
 router.delete("/news/:id", (req: Request, res: Response) => {
   const db = getData();
-  const { id } = req.params;
+  const id = req.params.id as string;
   const filtered = db.news.filter((n) => n.id !== id);
   if (filtered.length !== db.news.length) {
     db.news = filtered;
@@ -149,7 +149,7 @@ router.post("/events", (req: Request, res: Response) => {
 
 router.put("/events/:id", (req: Request, res: Response) => {
   const db = getData();
-  const { id } = req.params;
+  const id = req.params.id as string;
   const updatedEvent = req.body as Event;
   const idx = db.events.findIndex((e) => e.id === id);
   if (idx !== -1) {
@@ -163,7 +163,7 @@ router.put("/events/:id", (req: Request, res: Response) => {
 
 router.delete("/events/:id", (req: Request, res: Response) => {
   const db = getData();
-  const { id } = req.params;
+  const id = req.params.id as string;
   const filtered = db.events.filter((e) => e.id !== id);
   if (filtered.length !== db.events.length) {
     db.events = filtered;
@@ -191,7 +191,7 @@ router.post("/opportunities", (req: Request, res: Response) => {
 
 router.put("/opportunities/:id", (req: Request, res: Response) => {
   const db = getData();
-  const { id } = req.params;
+  const id = req.params.id as string;
   const updatedOpp = req.body as Opportunity;
   const idx = db.opportunities.findIndex((o) => o.id === id);
   if (idx !== -1) {
@@ -205,7 +205,7 @@ router.put("/opportunities/:id", (req: Request, res: Response) => {
 
 router.delete("/opportunities/:id", (req: Request, res: Response) => {
   const db = getData();
-  const { id } = req.params;
+  const id = req.params.id as string;
   const filtered = db.opportunities.filter((o) => o.id !== id);
   if (filtered.length !== db.opportunities.length) {
     db.opportunities = filtered;
@@ -233,7 +233,7 @@ router.post("/positions", (req: Request, res: Response) => {
 
 router.put("/positions/:id", (req: Request, res: Response) => {
   const db = getData();
-  const { id } = req.params;
+  const id = req.params.id as string;
   const updatedPos = req.body as Position;
   const idx = db.positions.findIndex((p) => p.id === id);
   if (idx !== -1) {
@@ -247,7 +247,7 @@ router.put("/positions/:id", (req: Request, res: Response) => {
 
 router.delete("/positions/:id", (req: Request, res: Response) => {
   const db = getData();
-  const { id } = req.params;
+  const id = req.params.id as string;
   const filtered = db.positions.filter((p) => p.id !== id);
   if (filtered.length !== db.positions.length) {
     db.positions = filtered;

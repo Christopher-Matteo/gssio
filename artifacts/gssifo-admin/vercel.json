@@ -2,7 +2,7 @@
   "outputDirectory": "dist",
   "cleanUrls": true,
   "rewrites": [
-    { "source": "/api/:path*", "destination": "https://gssio-api-server-vv2u.vercel.app/api/:path*" }
+    { "source": "/api/:path*", "destination": "https://gssifo-api-server-vv2u.vercel.app/api/:path*" }
   ],
   "routes": [
     { "handle": "filesystem" },

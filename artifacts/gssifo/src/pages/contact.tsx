@@ -30,7 +30,7 @@ export default function Contact() {
               
               <li className="flex items-center gap-4">
                 <Mail className="w-6 h-6 shrink-0 text-secondary" />
-                <span>contact@gssif.org</span>
+                <span>contact@gssifo.org</span>
               </li>
             </ul>
 
@@ -38,15 +38,15 @@ export default function Contact() {
             <div className="space-y-4">
               <div>
                 <p className="font-bold">North America (New York)</p>
-                <p className="text-sm text-muted-foreground">+1 212 555 0199 | ny@gssif.org</p>
+                <p className="text-sm text-muted-foreground">+1 212 555 0199 | ny@gssifo.org</p>
               </div>
               <div>
                 <p className="font-bold">Africa (Nairobi)</p>
-                <p className="text-sm text-muted-foreground">+254 20 555 0199 | nairobi@gssif.org</p>
+                <p className="text-sm text-muted-foreground">+254 20 555 0199 | nairobi@gssifo.org</p>
               </div>
               <div>
                 <p className="font-bold">Asia Pacific (Bangkok)</p>
-                <p className="text-sm text-muted-foreground">+66 2 555 0199 | bangkok@gssif.org</p>
+                <p className="text-sm text-muted-foreground">+66 2 555 0199 | bangkok@gssifo.org</p>
               </div>
             </div>
           </div>

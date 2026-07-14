@@ -96,7 +96,7 @@ export default function Opportunities() {
               Volunteer Opportunities
             </h1>
             <p className="text-lg text-muted-foreground mb-6 leading-relaxed">
-              When you volunteer with GSSIF, you are not just offering your time; you are joining a global community of over 12,000 active advocates dedicated to building sustainable and resilient environments.
+              When you volunteer with GSSIFO, you are not just offering your time; you are joining a global community of over 12,000 active advocates dedicated to building sustainable and resilient environments.
             </p>
             <div className="flex gap-8 border-t pt-6">
               <div>
@@ -114,7 +114,7 @@ export default function Opportunities() {
             </div>
           </div>
           <div className="lg:w-1/2 rounded-2xl overflow-hidden shadow-lg bg-muted border aspect-[4/3] w-full">
-            <img src={volunteerImg} alt="GSSIF volunteers in action" className="w-full h-full object-cover" />
+            <img src={volunteerImg} alt="GSSIFO volunteers in action" className="w-full h-full object-cover" />
           </div>
         </div>
 

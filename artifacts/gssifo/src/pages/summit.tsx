@@ -98,7 +98,7 @@ export default function Summit() {
               <Award className="w-6 h-6" />
             </div>
             <h3 className="font-bold text-lg mb-2">Certification</h3>
-            <p className="text-sm text-muted-foreground">Receive a certified attendee credential from GSSIF for professional credits.</p>
+            <p className="text-sm text-muted-foreground">Receive a certified attendee credential from GSSIFO for professional credits.</p>
           </div>
           <div className="bg-white p-8 border rounded-xl shadow-sm">
             <div className="w-12 h-12 bg-secondary/15 text-secondary rounded-full flex items-center justify-center mx-auto mb-4">

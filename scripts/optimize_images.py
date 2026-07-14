@@ -2,7 +2,7 @@ import os
 from PIL import Image
 
 def optimize_images():
-    img_dir = r"d:\Downloads\GSSIO-Global-Suite\GSSIO-Global-Suite\artifacts\gssio\src\assets\images"
+    img_dir = r"d:\Downloads\GSSIO-Global-Suite\GSSIO-Global-Suite\artifacts\gssifo\src\assets\images"
     max_dimension = 1600
     quality = 80
     

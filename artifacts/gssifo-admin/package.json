@@ -1,5 +1,5 @@
 {
-  "name": "@workspace/gssio-admin",
+  "name": "@workspace/gssifo-admin",
   "version": "0.0.0",
   "packageManager": "pnpm@10.15.0",
   "private": true,

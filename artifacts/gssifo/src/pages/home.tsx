@@ -24,8 +24,8 @@ import spotlightBg from "@/assets/images/spotlight-bg.webp";
 import volunteerAction from "@/assets/images/volunteer-action.webp";
 
 const defaultSlides = [
-  { src: heroImage, alt: "GSSIF team members working together with a local community" },
-  { src: heroSolar, alt: "GSSIF partnership team installing solar panels with a local community" },
+  { src: heroImage, alt: "GSSIFO team members working together with a local community" },
+  { src: heroSolar, alt: "GSSIFO partnership team installing solar panels with a local community" },
 ];
 
 export default function Home() {
@@ -33,7 +33,7 @@ export default function Home() {
   const [heroSlidesList, setHeroSlidesList] = useState(defaultSlides);
 
   const defaultNews = [
-    { title: "GSSIF announces $50M expansion to clean energy initiatives across Sub-Saharan Africa", img: news1, date: "Oct 12, 2024" },
+    { title: "GSSIFO announces $50M expansion to clean energy initiatives across Sub-Saharan Africa", img: news1, date: "Oct 12, 2024" },
     { title: "New partnership with global health organizations to deliver 1M vaccines", img: news2, date: "Oct 05, 2024" },
     { title: "Annual Sustainability Summit concludes with historic climate pledge from 20 nations", img: news3, date: "Sep 28, 2024" }
   ];
@@ -52,7 +52,7 @@ export default function Home() {
       .then(res => res.json())
       .then(data => {
         if (Array.isArray(data) && data.length > 0) {
-          setHeroSlidesList(data.map((src: string) => ({ src, alt: "GSSIF Community Slider" })));
+          setHeroSlidesList(data.map((src: string) => ({ src, alt: "GSSIFO Community Slider" })));
         }
       })
       .catch(() => {});
@@ -107,7 +107,7 @@ export default function Home() {
             Empowering People. Transforming Communities. Sustaining the Future.
           </h1>
           <p className="text-base sm:text-lg md:text-xl max-w-2xl mb-6 sm:mb-10 opacity-90 leading-relaxed animate-in slide-in-from-bottom-8 duration-700 delay-150">
-            GSSIF is a global catalyst for sustainable development, dedicated to foster resilience and equity across 35 countries through data-driven humanitarian initiatives.
+            GSSIFO is a global catalyst for sustainable development, dedicated to foster resilience and equity across 35 countries through data-driven humanitarian initiatives.
           </p>
           <div className="flex flex-wrap gap-6 animate-in slide-in-from-bottom-8 duration-700 delay-300">
             <Link href="/what-we-do">
@@ -187,13 +187,13 @@ export default function Home() {
         <div className="max-w-[1280px] mx-auto px-4 lg:px-16">
           <div className="text-center mb-16">
             <h2 className="text-4xl lg:text-5xl font-bold mb-4 text-foreground">Global Footprint</h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">Operating across four continents, GSSIF provides mission-critical support where it's needed most.</p>
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">Operating across four continents, GSSIFO provides mission-critical support where it's needed most.</p>
           </div>
           
           <div className="relative bg-muted/50 rounded-3xl p-8 lg:p-12 border border-border overflow-hidden">
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 items-center">
               <div className="lg:col-span-2 relative flex items-center justify-center min-h-[300px] overflow-hidden rounded-2xl">
-                <img src={mapImage} alt="Global connectivity map showing GSSIF's worldwide network" className="w-full h-full object-cover" />
+                <img src={mapImage} alt="Global connectivity map showing GSSIFO's worldwide network" className="w-full h-full object-cover" />
               </div>
               <div className="space-y-6 relative z-10">
                 <div className="bg-white p-6 rounded-xl border border-border shadow-sm">
@@ -299,7 +299,7 @@ export default function Home() {
             <div className="lg:pl-8">
               <span className="text-primary font-medium text-sm uppercase tracking-widest block mb-4">Human Impact</span>
               <h2 className="text-3xl lg:text-4xl font-bold mb-8 text-foreground leading-snug">
-                "GSSIF didn't just give us resources; they gave us our voice back."
+                "GSSIFO didn't just give us resources; they gave us our voice back."
               </h2>
               <p className="text-lg lg:text-xl text-muted-foreground italic mb-10 leading-relaxed">
                 "Before the program, our village struggled with basic infrastructure. Today, we manage our own clean water systems and our daughters are in university. The transformation is permanent."

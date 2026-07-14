@@ -61,7 +61,7 @@ export default function Partner() {
         {/* Hero Section */}
         <div className="text-center max-w-3xl mx-auto mb-16">
           <h1 className="text-4xl sm:text-5xl font-extrabold tracking-tight text-foreground mb-6">
-            Partner with GSSIF
+            Partner with GSSIFO
           </h1>
           <p className="text-lg text-muted-foreground leading-relaxed">
             We collaborate with corporations, governments, and non-profits to build clean water assets, deliver essential vaccinations, and adapt farming techniques for climate resilience. Join us to co-create sustainable development solutions at scale.
@@ -93,7 +93,7 @@ export default function Partner() {
               </div>
               <h3 className="font-bold text-xl mb-4">Bilateral & Governments</h3>
               <p className="text-sm text-muted-foreground leading-relaxed mb-6">
-                Integrate GSSIF programs with local health ministries or public infrastructure works for regional compliance and lasting change.
+                Integrate GSSIFO programs with local health ministries or public infrastructure works for regional compliance and lasting change.
               </p>
             </div>
             <ul className="text-xs space-y-2 border-t pt-4 font-semibold text-muted-foreground">

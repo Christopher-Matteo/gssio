@@ -26,7 +26,7 @@ export default function Positions() {
       category: "Health",
       location: "Geneva, Switzerland",
       type: "Full-Time",
-      desc: "Lead GSSIF's engagement with global health bodies, coordinate vaccination programs, and design scalable primary health policies for rural centers.",
+      desc: "Lead GSSIFO's engagement with global health bodies, coordinate vaccination programs, and design scalable primary health policies for rural centers.",
     },
     {
       title: "Climate Change Adaptation Specialist",
@@ -54,7 +54,7 @@ export default function Positions() {
       category: "Operations",
       location: "New York, USA",
       type: "Full-Time",
-      desc: "Steer GSSIF's global education initiatives, grow scholarship fund portfolios, and coordinate local school construction guidelines.",
+      desc: "Steer GSSIFO's global education initiatives, grow scholarship fund portfolios, and coordinate local school construction guidelines.",
     },
   ];
 
@@ -103,7 +103,7 @@ export default function Positions() {
             Careers with Purpose
           </h1>
           <p className="text-lg text-muted-foreground leading-relaxed">
-            At GSSIF, we bring together researchers, logistic experts, health professionals, and field coordinators to build a sustainable, equitable future. Discover your next role and build a career that changes lives.
+            At GSSIFO, we bring together researchers, logistic experts, health professionals, and field coordinators to build a sustainable, equitable future. Discover your next role and build a career that changes lives.
           </p>
         </div>
 
@@ -301,7 +301,7 @@ export default function Positions() {
                       name="coverLetter" 
                       value={formData.coverLetter}
                       onChange={handleInputChange}
-                      placeholder="Outline your background, your research / project management credentials, and why GSSIF matches your career goals."
+                      placeholder="Outline your background, your research / project management credentials, and why GSSIFO matches your career goals."
                       className="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary" 
                       required
                     ></textarea>

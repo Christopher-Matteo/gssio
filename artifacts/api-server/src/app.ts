@@ -33,9 +33,9 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use("/api", router);
 
-// Serve static files from gssio client and admin client
-const frontendDist = path.resolve(__dirname, "../../gssio/dist");
-const adminDist = path.resolve(__dirname, "../../gssio-admin/dist");
+// Serve static files from gssifo client and admin client
+const frontendDist = path.resolve(__dirname, "../../gssifo/dist");
+const adminDist = path.resolve(__dirname, "../../gssifo-admin/dist");
 
 app.use(express.static(frontendDist));
 app.use("/admin", express.static(adminDist));

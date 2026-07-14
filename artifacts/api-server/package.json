@@ -6,7 +6,7 @@
   "type": "module",
   "scripts": {
     "dev": "export NODE_ENV=development && pnpm run build && pnpm run start",
-    "build": "pnpm --filter @workspace/gssio build && pnpm --filter @workspace/gssio-admin build && node ./build.mjs",
+    "build": "pnpm --filter @workspace/gssifo build && pnpm --filter @workspace/gssifo-admin build && node ./build.mjs",
     "start": "node --enable-source-maps ./dist/index.mjs",
     "typecheck": "tsc -p tsconfig.json --noEmit"
   },

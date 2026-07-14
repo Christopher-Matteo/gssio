@@ -4,7 +4,7 @@ export default function WhoWeAre() {
       <div className="container mx-auto px-4 max-w-4xl">
         <h1 className="text-5xl font-bold mb-8">Who We Are</h1>
         <p className="text-xl text-muted-foreground leading-relaxed mb-12">
-          The Global Sustainability and Social Impact Foundation (GSSIF) was founded in 1995 with a singular vision: to address the world's most pressing challenges through coordinated, science-based, and community-led interventions.
+          The Global Sustainability and Social Impact Foundation (GSSIFO) was founded in 1995 with a singular vision: to address the world's most pressing challenges through coordinated, science-based, and community-led interventions.
         </p>
         
         <div className="prose prose-lg max-w-none text-foreground/80">
@@ -15,7 +15,7 @@ export default function WhoWeAre() {
  
           <h2>Our History</h2>
           <p>
-            What began as a coalition of independent researchers and field workers has grown into a major international NGO. Throughout the early 2000s, GSSIF pioneered community-managed water systems in sub-Saharan Africa. Today, we are a leading voice in global policy, advising governments and intergovernmental bodies on sustainable development goals.
+            What began as a coalition of independent researchers and field workers has grown into a major international NGO. Throughout the early 2000s, GSSIFO pioneered community-managed water systems in sub-Saharan Africa. Today, we are a leading voice in global policy, advising governments and intergovernmental bodies on sustainable development goals.
           </p>
 
           <h2>Leadership</h2>

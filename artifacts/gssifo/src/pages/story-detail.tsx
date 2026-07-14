@@ -104,7 +104,7 @@ function StoryDetail({ params }: { params: { id?: string } }) {
 
         {/* Article text content */}
         <div className="prose prose-lg max-w-none text-foreground/90 space-y-6 leading-relaxed text-lg">
-          {story.content.map((paragraph, index) => (
+          {story.content.map((paragraph: string, index: number) => (
             <p key={index}>{paragraph}</p>
           ))}
         </div>

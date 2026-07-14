@@ -15,7 +15,7 @@ export default function Legal({ type }: LegalProps) {
       paragraphs: [
         {
           heading: "1. Information We Collect",
-          body: "GSSIF is committed to protecting your privacy. We collect personal information you provide directly, such as your name, email address, phone number, organization name, and payment information when you make a donation, apply for volunteer opportunities, register for a summit, or contact us. We also collect automated log data such as IP address and browser type when navigating the site.",
+          body: "GSSIFO is committed to protecting your privacy. We collect personal information you provide directly, such as your name, email address, phone number, organization name, and payment information when you make a donation, apply for volunteer opportunities, register for a summit, or contact us. We also collect automated log data such as IP address and browser type when navigating the site.",
         },
         {
           heading: "2. How We Use Your Information",
@@ -27,7 +27,7 @@ export default function Legal({ type }: LegalProps) {
         },
         {
           heading: "4. Information Security",
-          body: "We implement industry-standard encryption protocols (SSL/TLS) for all transactions and communications. Access to personal database servers is strictly restricted to GSSIF authorized staff and IT personnel.",
+          body: "We implement industry-standard encryption protocols (SSL/TLS) for all transactions and communications. Access to personal database servers is strictly restricted to GSSIFO authorized staff and IT personnel.",
         },
       ],
     },
@@ -38,7 +38,7 @@ export default function Legal({ type }: LegalProps) {
       paragraphs: [
         {
           heading: "1. Acceptance of Terms",
-          body: "By accessing and using the GSSIF-Global-Suite web applications, you agree to comply with and be bound by these Terms of Service. If you do not agree to these terms, you must refrain from using the platform.",
+          body: "By accessing and using the GSSIFO-Global-Suite web applications, you agree to comply with and be bound by these Terms of Service. If you do not agree to these terms, you must refrain from using the platform.",
         },
         {
           heading: "2. Rules of Engagement",
@@ -46,11 +46,11 @@ export default function Legal({ type }: LegalProps) {
         },
         {
           heading: "3. Intellectual Property Rights",
-          body: "All text, custom web graphics, logo layouts, publication reports, and photography assets displayed on the GSSIF platform are copyrighted properties of the Global Sustainability and Social Impact Foundation, unless otherwise cited. Unauthorized commercial replication is strictly prohibited.",
+          body: "All text, custom web graphics, logo layouts, publication reports, and photography assets displayed on the GSSIFO platform are copyrighted properties of the Global Sustainability and Social Impact Foundation, unless otherwise cited. Unauthorized commercial replication is strictly prohibited.",
         },
         {
           heading: "4. Limitation of Liability",
-          body: "GSSIF makes no absolute warranties that website modules will run completely uninterrupted or bug-free. All programs, opportunities, and event updates are provided on an 'as is' basis without liability for technical anomalies.",
+          body: "GSSIFO makes no absolute warranties that website modules will run completely uninterrupted or bug-free. All programs, opportunities, and event updates are provided on an 'as is' basis without liability for technical anomalies.",
         },
       ],
     },
@@ -61,7 +61,7 @@ export default function Legal({ type }: LegalProps) {
       paragraphs: [
         {
           heading: "1. Our Commitment",
-          body: "GSSIF is dedicated to ensuring digital accessibility for all users, including individuals with visual, auditory, cognitive, or physical impairments. We continuously upgrade our web layouts to follow the Web Content Accessibility Guidelines (WCAG) 2.1 level AA standards.",
+          body: "GSSIFO is dedicated to ensuring digital accessibility for all users, including individuals with visual, auditory, cognitive, or physical impairments. We continuously upgrade our web layouts to follow the Web Content Accessibility Guidelines (WCAG) 2.1 level AA standards.",
         },
         {
           heading: "2. Implemented Measures",
@@ -73,7 +73,7 @@ export default function Legal({ type }: LegalProps) {
         },
         {
           heading: "4. Accessibility Feedback",
-          body: "If you encounter layout issues or access barriers while using GSSIF systems, please contact our web accessibility team at accessibility@gssif.org. We will make every effort to resolve the issue as quickly as possible.",
+          body: "If you encounter layout issues or access barriers while using GSSIFO systems, please contact our web accessibility team at accessibility@gssifo.org. We will make every effort to resolve the issue as quickly as possible.",
         },
       ],
     },
@@ -112,7 +112,7 @@ export default function Legal({ type }: LegalProps) {
           </div>
 
           <div className="mt-12 pt-8 border-t flex flex-col sm:flex-row items-center justify-between gap-4">
-            <p className="text-xs text-muted-foreground">© {new Date().getFullYear()} GSSIF. All rights reserved.</p>
+            <p className="text-xs text-muted-foreground">© {new Date().getFullYear()} GSSIFO. All rights reserved.</p>
             <div className="flex gap-4 text-xs font-semibold text-primary">
               <Link href="/privacy" className="hover:underline">Privacy Policy</Link>
               <Link href="/terms" className="hover:underline">Terms of Service</Link>

@@ -1,6 +1,6 @@
 import { Link } from "wouter";
 import { Facebook, Twitter, Instagram, Linkedin, Mail, MapPin, Phone } from "lucide-react";
-import logoImage from "@/assets/images/gssio-logo.webp";
+import logoImage from "@/assets/images/gssifo-logo.webp";
 
 export function Footer() {
   return (
@@ -10,8 +10,8 @@ export function Footer() {
           {/* Brand & About */}
           <div className="space-y-6">
             <Link href="/" className="flex items-center gap-3">
-              <img src={logoImage} alt="GSSIF Logo" className="h-12 w-auto object-contain bg-white rounded p-1" />
-              <span className="font-bold text-2xl tracking-tight">GSSIF</span>
+              <img src={logoImage} alt="GSSIFO Logo" className="h-12 w-auto object-contain bg-white rounded p-1" />
+              <span className="font-bold text-2xl tracking-tight">GSSIFO</span>
             </Link>
             <p className="text-white/80 leading-relaxed text-sm">
               The Global Sustainability and Social Impact Foundation works across borders to build resilient communities, protect human rights, and safeguard our planet for future generations.
@@ -58,7 +58,7 @@ export function Footer() {
               </li>
               <li className="flex items-center gap-3 text-sm">
                 <Mail className="w-5 h-5 shrink-0 text-white/60" />
-                <span>contact@gssif.org</span>
+                 <span>contact@gssifo.org</span>
               </li>
             </ul>
           </div>

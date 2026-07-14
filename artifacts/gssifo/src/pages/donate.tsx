@@ -36,7 +36,7 @@ export default function Donate() {
             
             <div className="mt-12 pt-8 border-t border-white/20">
               <p className="text-sm text-primary-foreground/70">
-                GSSIF is a registered 501(c)(3) non-profit organization. All donations are tax-deductible to the full extent of the law.
+                GSSIFO is a registered 501(c)(3) non-profit organization. All donations are tax-deductible to the full extent of the law.
               </p>
             </div>
           </div>

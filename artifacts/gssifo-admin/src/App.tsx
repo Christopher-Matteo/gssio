@@ -287,7 +287,7 @@ export default function App() {
           <div className="p-8 border-b border-slate-100 flex items-center gap-3">
             <div className="w-10 h-10 bg-blue-600 rounded-xl flex items-center justify-center font-extrabold text-xl text-white shadow-md shadow-blue-500/25">G</div>
             <div>
-              <h2 className="font-extrabold text-lg leading-tight text-slate-900 tracking-tight">GSSIF Hub</h2>
+              <h2 className="font-extrabold text-lg leading-tight text-slate-900 tracking-tight">GSSIFO Hub</h2>
               <p className="text-xs text-blue-600 font-bold uppercase tracking-wider mt-0.5">Control Center</p>
             </div>
           </div>
@@ -324,7 +324,7 @@ export default function App() {
           </nav>
         </div>
         <div className="p-6 border-t border-slate-100 bg-slate-50/50">
-          <p className="text-xs text-slate-400 font-bold">© {new Date().getFullYear()} GSSIF Admin</p>
+          <p className="text-xs text-slate-400 font-bold">© {new Date().getFullYear()} GSSIFO Admin</p>
           <a href="/" target="_blank" rel="noreferrer" className="flex items-center gap-1.5 text-blue-600 hover:text-blue-800 font-extrabold text-xs mt-3 transition-colors">
             View Live Website <ExternalLink className="w-3.5 h-3.5" />
           </a>
@@ -360,7 +360,7 @@ export default function App() {
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
                   <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
                 </span>
-                GSSIF Core API: Active
+                GSSIFO Core API: Active
               </div>
             </div>
 
@@ -398,7 +398,7 @@ export default function App() {
                       <TrendingUp className="text-blue-600 w-6 h-6" /> Dynamic Content Control
                     </h3>
                     <p className="text-slate-600 mt-2.5 leading-relaxed text-sm font-semibold">
-                      Welcome to your admin console. All tables here synchronize in real-time with the GSSIF main portal. To update homepage image sliders, news announcements, summits, or read partners inquiry emails, select their respective tabs.
+                      Welcome to your admin console. All tables here synchronize in real-time with the GSSIFO main portal. To update homepage image sliders, news announcements, summits, or read partners inquiry emails, select their respective tabs.
                     </p>
                   </div>
                   <div className="flex gap-3 shrink-0">
@@ -504,7 +504,7 @@ export default function App() {
                 <div className="flex justify-between items-center">
                   <div>
                     <h2 className="text-xl font-extrabold text-slate-900">Articles & Impact Stories</h2>
-                    <p className="text-sm text-slate-500">Edit, add, or delete stories from GSSIF operations.</p>
+                    <p className="text-sm text-slate-500">Edit, add, or delete stories from GSSIFO operations.</p>
                   </div>
                   <button onClick={() => triggerAdd("story")} className="bg-blue-600 hover:bg-blue-700 text-white font-extrabold px-5 py-3 rounded-xl transition-all shadow-md shadow-blue-500/10 text-sm flex items-center gap-2">
                     <Plus className="w-4 h-4" /> Add Story
@@ -598,7 +598,7 @@ export default function App() {
                 <div className="flex justify-between items-center">
                   <div>
                     <h2 className="text-xl font-extrabold text-slate-900">Upcoming Calendar & Summit Events</h2>
-                    <p className="text-sm text-slate-500">Manage registration events visible on GSSIF pages.</p>
+                    <p className="text-sm text-slate-500">Manage registration events visible on GSSIFO pages.</p>
                   </div>
                   <button onClick={() => triggerAdd("event")} className="bg-blue-600 hover:bg-blue-700 text-white font-extrabold px-5 py-3 rounded-xl transition-all shadow-md shadow-blue-500/10 text-sm flex items-center gap-2">
                     <Plus className="w-4 h-4" /> Add Event
