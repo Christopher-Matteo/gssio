@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { Link, useParams } from "wouter";
 import { ArrowLeft, Clock, User, Calendar, Tag } from "lucide-react";
 import { storiesData } from "@/data/stories";
@@ -7,6 +8,10 @@ export default function StoryDetail() {
   const params = useParams();
   const storyId = params.id;
   const story = storiesData.find((s) => s.id === storyId);
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, [storyId]);
 
   if (!story) {
     return (
