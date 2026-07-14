@@ -4,14 +4,18 @@ import { ArrowLeft, Clock, User, Calendar, Tag } from "lucide-react";
 import { storiesData } from "@/data/stories";
 import { Button } from "@/components/ui/button";
 
-export default function StoryDetail() {
+export default function StoryDetailWrapper() {
   const params = useParams();
+  return <StoryDetail key={params.id} params={params} />;
+}
+
+function StoryDetail({ params }: { params: { id?: string } }) {
   const storyId = params.id;
   const story = storiesData.find((s) => s.id === storyId);
 
   useEffect(() => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  }, [storyId]);
+    window.scrollTo(0, 0);
+  }, []);
 
   if (!story) {
     return (
