@@ -61,7 +61,8 @@ export default function Positions() {
   const [positionsList, setPositionsList] = useState<any[]>(defaultPos);
 
   useEffect(() => {
-    fetch("/api/positions")
+    const apiBase = import.meta.env.VITE_API_URL || "";
+    fetch(`${apiBase}/api/positions`)
       .then(res => res.json())
       .then(data => {
         if (Array.isArray(data) && data.length > 0) {

@@ -15,7 +15,8 @@ function StoryDetail({ params }: { params: { id?: string } }) {
 
   useEffect(() => {
     window.scrollTo(0, 0);
-    fetch("/api/stories")
+    const apiBase = import.meta.env.VITE_API_URL || "";
+    fetch(`${apiBase}/api/stories`)
       .then(res => res.json())
       .then(data => {
         if (Array.isArray(data) && data.length > 0) {

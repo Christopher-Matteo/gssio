@@ -24,7 +24,8 @@ export function Navbar() {
   });
 
   useEffect(() => {
-    fetch("/api/banner")
+    const apiBase = import.meta.env.VITE_API_URL || "";
+    fetch(`${apiBase}/api/banner`)
       .then(res => res.json())
       .then(data => {
         if (data && data.text) setBanner(data);

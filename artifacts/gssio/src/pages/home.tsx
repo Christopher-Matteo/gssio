@@ -47,7 +47,8 @@ export default function Home() {
   const [eventsList, setEventsList] = useState(defaultEvents);
 
   useEffect(() => {
-    fetch("/api/hero")
+    const apiBase = import.meta.env.VITE_API_URL || "";
+    fetch(`${apiBase}/api/hero`)
       .then(res => res.json())
       .then(data => {
         if (Array.isArray(data) && data.length > 0) {
@@ -56,7 +57,7 @@ export default function Home() {
       })
       .catch(() => {});
 
-    fetch("/api/news")
+    fetch(`${apiBase}/api/news`)
       .then(res => res.json())
       .then(data => {
         if (Array.isArray(data) && data.length > 0) {
@@ -65,7 +66,7 @@ export default function Home() {
       })
       .catch(() => {});
 
-    fetch("/api/events")
+    fetch(`${apiBase}/api/events`)
       .then(res => res.json())
       .then(data => {
         if (Array.isArray(data) && data.length > 0) {

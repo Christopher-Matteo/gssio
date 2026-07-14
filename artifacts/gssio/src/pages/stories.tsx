@@ -7,7 +7,8 @@ export default function Stories() {
   const [stories, setStories] = useState(storiesData);
 
   useEffect(() => {
-    fetch("/api/stories")
+    const apiBase = import.meta.env.VITE_API_URL || "";
+    fetch(`${apiBase}/api/stories`)
       .then(res => res.json())
       .then(data => {
         if (Array.isArray(data) && data.length > 0) {

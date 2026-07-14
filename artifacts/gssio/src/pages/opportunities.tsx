@@ -52,7 +52,8 @@ export default function Opportunities() {
   const [opportunitiesList, setOpportunitiesList] = useState<any[]>(defaultOpps);
 
   useEffect(() => {
-    fetch("/api/opportunities")
+    const apiBase = import.meta.env.VITE_API_URL || "";
+    fetch(`${apiBase}/api/opportunities`)
       .then(res => res.json())
       .then(data => {
         if (Array.isArray(data) && data.length > 0) {

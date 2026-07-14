@@ -116,19 +116,20 @@ export default function App() {
 
   // Fetch all database tables on load
   const loadData = async () => {
+    const apiBase = import.meta.env.VITE_API_URL || "";
     try {
       setIsLoading(true);
       const [
         resBanner, resHero, resStories, resNews, resEvents, resOpps, resPos, resPartners
       ] = await Promise.all([
-        fetch("/api/banner").then(r => r.json()),
-        fetch("/api/hero").then(r => r.json()),
-        fetch("/api/stories").then(r => r.json()),
-        fetch("/api/news").then(r => r.json()),
-        fetch("/api/events").then(r => r.json()),
-        fetch("/api/opportunities").then(r => r.json()),
-        fetch("/api/positions").then(r => r.json()),
-        fetch("/api/partners").then(r => r.json()),
+        fetch(`${apiBase}/api/banner`).then(r => r.json()),
+        fetch(`${apiBase}/api/hero`).then(r => r.json()),
+        fetch(`${apiBase}/api/stories`).then(r => r.json()),
+        fetch(`${apiBase}/api/news`).then(r => r.json()),
+        fetch(`${apiBase}/api/events`).then(r => r.json()),
+        fetch(`${apiBase}/api/opportunities`).then(r => r.json()),
+        fetch(`${apiBase}/api/positions`).then(r => r.json()),
+        fetch(`${apiBase}/api/partners`).then(r => r.json()),
       ]);
 
       setBanner(resBanner);
@@ -153,8 +154,9 @@ export default function App() {
   // Update banner settings
   const handleBannerSave = async (e: React.FormEvent) => {
     e.preventDefault();
+    const apiBase = import.meta.env.VITE_API_URL || "";
     try {
-      const res = await fetch("/api/banner", {
+      const res = await fetch(`${apiBase}/api/banner`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(banner),
@@ -169,11 +171,12 @@ export default function App() {
 
   // Update hero slides URLs
   const handleHeroSave = async (idx: number, val: string) => {
+    const apiBase = import.meta.env.VITE_API_URL || "";
     const nextSlides = [...heroSlides];
     nextSlides[idx] = val;
     setHeroSlides(nextSlides);
     try {
-      const res = await fetch("/api/hero", {
+      const res = await fetch(`${apiBase}/api/hero`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ slides: nextSlides }),
@@ -188,8 +191,9 @@ export default function App() {
 
   // --- CRUD Operations ---
   const handleSaveItem = async (endpoint: string, itemType: string, body: any, isEdit: boolean) => {
+    const apiBase = import.meta.env.VITE_API_URL || "";
     try {
-      const url = isEdit ? `/api/${endpoint}/${editingItem.id}` : `/api/${endpoint}`;
+      const url = isEdit ? `${apiBase}/api/${endpoint}/${editingItem.id}` : `${apiBase}/api/${endpoint}`;
       const method = isEdit ? "PUT" : "POST";
       const res = await fetch(url, {
         method,
@@ -212,8 +216,9 @@ export default function App() {
 
   const handleDeleteItem = async (endpoint: string, itemType: string, id: string) => {
     if (!confirm(`Are you sure you want to delete this ${itemType}?`)) return;
+    const apiBase = import.meta.env.VITE_API_URL || "";
     try {
-      const res = await fetch(`/api/${endpoint}/${id}`, { method: "DELETE" });
+      const res = await fetch(`${apiBase}/api/${endpoint}/${id}`, { method: "DELETE" });
       if (res.ok) {
         showToast(`${itemType} deleted successfully.`);
         loadData();
