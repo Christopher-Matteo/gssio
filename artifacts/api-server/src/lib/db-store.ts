@@ -68,6 +68,18 @@ export interface Partner {
   date: string;
 }
 
+export interface VolunteerApplication {
+  id: string;
+  firstName: string;
+  lastName: string;
+  email: string;
+  phone: string;
+  opportunity: string;
+  availability: string;
+  message: string;
+  date: string;
+}
+
 export interface DbData {
   banner: Banner;
   heroSlides: string[];
@@ -77,6 +89,7 @@ export interface DbData {
   opportunities: Opportunity[];
   positions: Position[];
   partners: Partner[];
+  volunteers?: VolunteerApplication[];
 }
 
 const defaultData: DbData = {
@@ -295,7 +308,8 @@ const defaultData: DbData = {
       desc: "Steer GSSIFO's global education initiatives, grow scholarship fund portfolios, and coordinate local school construction guidelines."
     }
   ],
-  partners: []
+  partners: [],
+  volunteers: []
 };
 
 // Initialize file-based DB if not existing

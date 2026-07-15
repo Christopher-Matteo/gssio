@@ -19,7 +19,8 @@ import {
   Loader,
   TrendingUp,
   MapPin,
-  Clock
+  Clock,
+  Heart
 } from "lucide-react";
 
 // Interfaces
@@ -86,6 +87,18 @@ interface Partner {
   date: string;
 }
 
+interface VolunteerApplication {
+  id: string;
+  firstName: string;
+  lastName: string;
+  email: string;
+  phone: string;
+  opportunity: string;
+  availability: string;
+  message: string;
+  date: string;
+}
+
 export default function App() {
   const [activeTab, setActiveTab] = useState("dashboard");
   const [isLoading, setIsLoading] = useState(true);
@@ -99,6 +112,7 @@ export default function App() {
   const [opportunities, setOpportunities] = useState<Opportunity[]>([]);
   const [positions, setPositions] = useState<Position[]>([]);
   const [partners, setPartners] = useState<Partner[]>([]);
+  const [volunteers, setVolunteers] = useState<VolunteerApplication[]>([]);
 
   // Editing & Dialog states
   const [toastMsg, setToastMsg] = useState<{ type: "success" | "error"; text: string } | null>(null);
@@ -123,7 +137,7 @@ export default function App() {
     try {
       setIsLoading(true);
       const [
-        resBanner, resHero, resStories, resNews, resEvents, resOpps, resPos, resPartners
+        resBanner, resHero, resStories, resNews, resEvents, resOpps, resPos, resPartners, resVolunteers
       ] = await Promise.all([
         fetch(`${apiBase}/api/banner`).then(r => r.json()),
         fetch(`${apiBase}/api/hero`).then(r => r.json()),
@@ -133,6 +147,7 @@ export default function App() {
         fetch(`${apiBase}/api/opportunities`).then(r => r.json()),
         fetch(`${apiBase}/api/positions`).then(r => r.json()),
         fetch(`${apiBase}/api/partners`).then(r => r.json()),
+        fetch(`${apiBase}/api/volunteers`).then(r => r.json()),
       ]);
 
       setBanner(resBanner);
@@ -143,6 +158,7 @@ export default function App() {
       setOpportunities(resOpps);
       setPositions(resPos);
       setPartners(resPartners);
+      setVolunteers(resVolunteers || []);
     } catch (err) {
       showToast("Error loading server data.", "error");
     } finally {
@@ -301,6 +317,7 @@ export default function App() {
               { id: "opportunities", label: "Volunteering Roles", icon: Users },
               { id: "positions", label: "Careers Openings", icon: Briefcase },
               { id: "partners", label: "Partnership Inbox", icon: Handshake },
+              { id: "volunteers", label: "Volunteer Inbox", icon: Heart },
             ].map(tab => {
               const Icon = tab.icon;
               return (
@@ -353,6 +370,7 @@ export default function App() {
                   {activeTab === "opportunities" && "Volunteer Positions"}
                   {activeTab === "positions" && "Career Opportunities"}
                   {activeTab === "partners" && "Partnership Inbox"}
+                  {activeTab === "volunteers" && "Volunteer Applications Inbox"}
                 </h1>
               </div>
               <div className="flex items-center gap-2 bg-emerald-50 text-emerald-800 px-3.5 py-1.5 rounded-full border border-emerald-200 text-xs font-bold shadow-sm">
@@ -375,6 +393,7 @@ export default function App() {
                     { title: "Volunteer Openings", count: opportunities.length, icon: Users, color: "text-sky-600 bg-sky-50 border-sky-100" },
                     { title: "Summit & Schedule Events", count: events.length, icon: Calendar, color: "text-amber-600 bg-amber-50 border-amber-100" },
                     { title: "Submitted Partnerships", count: partners.length, icon: Handshake, color: "text-emerald-600 bg-emerald-50 border-emerald-100" },
+                    { title: "Volunteer Applications", count: volunteers.length, icon: Heart, color: "text-rose-600 bg-rose-50 border-rose-100" },
                   ].map((card, idx) => {
                     const Icon = card.icon;
                     return (
@@ -780,6 +799,74 @@ export default function App() {
                         <tr>
                           <td colSpan={6} className="p-12 text-center text-slate-400 font-bold">
                             No partnership inquiries have been received yet.
+                          </td>
+                        </tr>
+                      )}
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            )}
+
+            {/* Tab: Volunteers Inbox */}
+            {activeTab === "volunteers" && (
+              <div className="space-y-6">
+                <div>
+                  <h2 className="text-xl font-extrabold text-slate-900">Volunteer Applications Inbox</h2>
+                  <p className="text-sm text-slate-500">Read and process applications submitted by volunteers.</p>
+                </div>
+
+                <div className="bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-sm">
+                  <table className="w-full text-left border-collapse">
+                    <thead>
+                      <tr className="bg-slate-50 text-slate-500 text-xs font-extrabold uppercase tracking-wider border-b border-slate-200">
+                        <th className="p-5">Applicant Name</th>
+                        <th className="p-5">Preferred Role</th>
+                        <th className="p-5">Contact Details</th>
+                        <th className="p-5">Availability</th>
+                        <th className="p-5">Date Received</th>
+                        <th className="p-5">Cover Message / About</th>
+                        <th className="p-5">Actions</th>
+                      </tr>
+                    </thead>
+                    <tbody className="divide-y divide-slate-100 text-sm font-semibold text-slate-700">
+                      {volunteers.map(vol => (
+                        <tr key={vol.id} className="hover:bg-slate-50/50 align-top">
+                          <td className="p-5 text-slate-900 font-extrabold">
+                            {vol.firstName} {vol.lastName}
+                          </td>
+                          <td className="p-5">
+                            <span className="px-2.5 py-0.5 bg-blue-50 text-blue-700 rounded text-xs font-bold border border-blue-100">
+                              {vol.opportunity}
+                            </span>
+                          </td>
+                          <td className="p-5 text-slate-500 font-semibold text-xs leading-relaxed">
+                            <span className="block font-bold text-slate-750">{vol.email}</span>
+                            <span className="block text-slate-400">{vol.phone}</span>
+                          </td>
+                          <td className="p-5">
+                            <span className="px-2.5 py-0.5 bg-slate-100 text-slate-700 rounded text-xs font-bold border border-slate-200">
+                              {vol.availability}
+                            </span>
+                          </td>
+                          <td className="p-5 text-slate-500">{vol.date}</td>
+                          <td className="p-5 text-slate-650 max-w-sm text-xs leading-relaxed whitespace-pre-wrap font-medium">
+                            {vol.message}
+                          </td>
+                          <td className="p-5">
+                            <button
+                              onClick={() => handleDeleteItem("volunteers", "Volunteer Application", vol.id)}
+                              className="bg-red-50 hover:bg-red-100 text-red-600 p-2 rounded-xl border border-red-100 transition-all"
+                            >
+                              <Trash2 className="w-4 h-4" />
+                            </button>
+                          </td>
+                        </tr>
+                      ))}
+                      {volunteers.length === 0 && (
+                        <tr>
+                          <td colSpan={7} className="p-12 text-center text-slate-400 font-bold">
+                            No volunteer applications have been received yet.
                           </td>
                         </tr>
                       )}

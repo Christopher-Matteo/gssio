@@ -8,7 +8,8 @@ import {
   Event, 
   Opportunity, 
   Position, 
-  Partner 
+  Partner,
+  VolunteerApplication
 } from "../lib/db-store";
 
 const router = Router();
@@ -276,6 +277,45 @@ router.post("/partners", (req: Request, res: Response) => {
   db.partners.push(partner);
   saveData(db);
   res.json({ success: true, partner });
+});
+
+// --- VOLUNTEERS CRUD ---
+router.get("/volunteers", (req: Request, res: Response) => {
+  const db = getData();
+  res.json(db.volunteers || []);
+});
+
+router.post("/volunteers", (req: Request, res: Response) => {
+  const db = getData();
+  if (!db.volunteers) {
+    db.volunteers = [];
+  }
+  const app = req.body as VolunteerApplication;
+  app.id = generateId();
+  app.date = new Date().toLocaleDateString("en-US", {
+    year: "numeric",
+    month: "short",
+    day: "numeric",
+  });
+  db.volunteers.push(app);
+  saveData(db);
+  res.json({ success: true, volunteer: app });
+});
+
+router.delete("/volunteers/:id", (req: Request, res: Response) => {
+  const db = getData();
+  const id = req.params.id as string;
+  if (!db.volunteers) {
+    db.volunteers = [];
+  }
+  const filtered = db.volunteers.filter((v) => v.id !== id);
+  if (filtered.length !== db.volunteers.length) {
+    db.volunteers = filtered;
+    saveData(db);
+    res.json({ success: true });
+  } else {
+    res.status(404).json({ error: "Volunteer application not found" });
+  }
 });
 
 export default router;

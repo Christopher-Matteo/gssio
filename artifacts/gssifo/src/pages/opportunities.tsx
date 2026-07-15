@@ -75,23 +75,32 @@ export default function Opportunities() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    const subject = encodeURIComponent(`Volunteer Application: ${formData.opportunity}`);
-    const body = encodeURIComponent(
-      `First Name: ${formData.firstName}\n` +
-      `Last Name: ${formData.lastName}\n` +
-      `Email: ${formData.email}\n` +
-      `Phone: ${formData.phone}\n` +
-      `Preferred Role: ${formData.opportunity}\n` +
-      `Availability: ${formData.availability}\n\n` +
-      `About Yourself:\n${formData.message}`
-    );
-    window.location.href = `mailto:info@gssifo.org?subject=${subject}&body=${body}`;
-
-    setFormSubmitted(true);
-    toast({
-      title: "Application Submitted Successfully!",
-      description: "Thank you for applying. A volunteer coordinator will contact you within 3 business days.",
-    });
+    const apiBase = import.meta.env.VITE_API_URL || "";
+    fetch(`${apiBase}/api/volunteers`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(formData),
+    })
+      .then((res) => {
+        if (!res.ok) throw new Error("Failed to submit");
+        return res.json();
+      })
+      .then(() => {
+        setFormSubmitted(true);
+        toast({
+          title: "Application Submitted Successfully!",
+          description: "Thank you for applying. A volunteer coordinator will contact you within 3 business days.",
+        });
+      })
+      .catch(() => {
+        toast({
+          title: "Submission Failed",
+          description: "There was a problem submitting your application. Please try again.",
+          variant: "destructive",
+        });
+      });
   };
 
   return (
