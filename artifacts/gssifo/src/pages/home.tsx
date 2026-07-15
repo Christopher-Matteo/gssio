@@ -3,7 +3,8 @@ import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { 
   ArrowRight, Globe2, BookOpen, Droplets, HeartHandshake, Sprout, 
-  Coins, Shield, ChevronLeft, ChevronRight, Globe, Mail, MapPin
+  Coins, Shield, ChevronLeft, ChevronRight, Globe, Mail, MapPin,
+  AlertCircle, AlertTriangle
 } from "lucide-react";
 
 import heroImage from "@/assets/images/hero-community.webp";
@@ -107,7 +108,7 @@ export default function Home() {
             Empowering People. Transforming Communities. Sustaining the Future.
           </h1>
           <p className="text-base sm:text-lg md:text-xl max-w-2xl mb-6 sm:mb-10 opacity-90 leading-relaxed animate-in slide-in-from-bottom-8 duration-700 delay-150">
-            GSSIFO is a global catalyst for sustainable development, dedicated to foster resilience and equity across 35 countries through data-driven humanitarian initiatives.
+            GSSIFO is a global catalyst for sustainable development, dedicated to foster resilience and equity across India through data-driven humanitarian initiatives.
           </p>
           <div className="flex flex-wrap gap-6 animate-in slide-in-from-bottom-8 duration-700 delay-300">
             <Link href="/what-we-do">
@@ -167,7 +168,9 @@ export default function Home() {
                 { icon: Droplets, title: "Clean Water", desc: "Providing universal access to safe, affordable drinking water and sanitation facilities." },
                 { icon: Coins, title: "Economic Equity", desc: "Eradicating extreme poverty and driving sustainable economic growth through micro-finance." },
                 { icon: BookOpen, title: "Education For All", desc: "Ensuring inclusive, equitable quality education and promoting lifelong learning opportunities." },
-                { icon: Globe2, title: "Global Health", desc: "Strengthening healthcare systems and fighting infectious diseases through mobile clinics." }
+                { icon: Globe2, title: "Global Health", desc: "Strengthening healthcare systems and fighting infectious diseases through mobile clinics." },
+                { icon: AlertCircle, title: "Drug Awareness", desc: "Educating communities on the dangers of substance abuse, offering rehabilitation support, and advocating for youth wellness programs." },
+                { icon: AlertTriangle, title: "Women Trafficking", desc: "Preventing human trafficking through vigilance, rescuing victims, and providing rehabilitative support and vocational training." }
               ].map((pillar, i) => (
                 <div key={i} className="bg-white p-8 rounded-2xl border border-border hover:shadow-xl transition-all">
                   <div className="w-12 h-12 bg-primary text-white rounded-full flex items-center justify-center mb-6">
@@ -282,7 +285,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 6. Impact Story Spotlight */}
+      {/* 6. Impact Story Spotlight - Hidden for now
       <section className="py-24 bg-muted/50">
         <div className="max-w-[1280px] mx-auto px-4 lg:px-16">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
@@ -320,8 +323,9 @@ export default function Home() {
           </div>
         </div>
       </section>
+      */}
 
-      {/* 7. Research & Publications */}
+      {/* 7. Research & Publications - Hidden for now
       <section id="research" className="py-24 bg-background">
         <div className="max-w-[1280px] mx-auto px-4 lg:px-16">
           <div className="text-center mb-16">
@@ -352,8 +356,9 @@ export default function Home() {
           </div>
         </div>
       </section>
+      */}
 
-      {/* 8. Latest News */}
+      {/* 8. Latest News - Hidden for now
       <section className="py-24 bg-background border-t border-border">
         <div className="max-w-[1280px] mx-auto px-4 lg:px-16">
           <div className="flex flex-col sm:flex-row justify-between items-start sm:items-end mb-16 gap-6">
@@ -387,6 +392,7 @@ export default function Home() {
           </div>
         </div>
       </section>
+      */}
 
       {/* 9. Spotlight Banner */}
       <section className="py-24 relative overflow-hidden">
@@ -453,29 +459,17 @@ export default function Home() {
 
       {/* 11. Dual Action */}
       <section className="py-24 bg-background">
-        <div className="max-w-[1280px] mx-auto px-4 lg:px-16">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-            <div className="bg-muted p-12 lg:p-16 rounded-3xl relative overflow-hidden flex flex-col justify-center min-h-[400px]">
-              <div className="absolute inset-0 bg-foreground/60 z-0">
-                <img src={volunteerAction} alt="Volunteers taking action" className="w-full h-full object-cover mix-blend-overlay" />
-              </div>
-              <div className="relative z-10 text-white">
-                <h2 className="text-3xl lg:text-4xl font-bold mb-4">Be the Change</h2>
-                <p className="text-lg text-white/90 mb-8 max-w-md leading-relaxed">Join our global network of volunteers. Your skills can directly impact communities in need.</p>
-                <Link href="/get-involved">
-                  <Button variant="outline" className="border-2 border-white text-white hover:bg-white hover:text-foreground bg-transparent font-bold h-14 px-8 rounded-lg">
-                    Volunteer
-                  </Button>
-                </Link>
-              </div>
+        <div className="max-w-[1280px] mx-auto px-4 lg:px-16 flex justify-center">
+          <div className="bg-muted p-12 lg:p-16 rounded-3xl relative overflow-hidden flex flex-col justify-center min-h-[400px] max-w-3xl w-full">
+            <div className="absolute inset-0 bg-foreground/60 z-0">
+              <img src={volunteerAction} alt="Volunteers taking action" className="w-full h-full object-cover mix-blend-overlay" />
             </div>
-            
-            <div className="bg-primary p-12 lg:p-16 rounded-3xl flex flex-col justify-center min-h-[400px] text-white">
-              <h2 className="text-3xl lg:text-4xl font-bold mb-4">Support Our Mission</h2>
-              <p className="text-lg text-white/90 mb-8 max-w-md leading-relaxed">Your financial contribution funds life-saving programs and structural development worldwide.</p>
-              <Link href="/donate">
-                <Button className="bg-secondary hover:bg-secondary/80 text-white font-bold h-14 px-8 rounded-lg w-fit">
-                  Make a Donation
+            <div className="relative z-10 text-white">
+              <h2 className="text-3xl lg:text-4xl font-bold mb-4">Be the Change</h2>
+              <p className="text-lg text-white/90 mb-8 max-w-md leading-relaxed">Join our global network of volunteers. Your skills can directly impact communities in need.</p>
+              <Link href="/get-involved/opportunities">
+                <Button variant="outline" className="border-2 border-white text-white hover:bg-white hover:text-foreground bg-transparent font-bold h-14 px-8 rounded-lg">
+                  Volunteer
                 </Button>
               </Link>
             </div>

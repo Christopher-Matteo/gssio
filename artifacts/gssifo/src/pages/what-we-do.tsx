@@ -38,11 +38,13 @@ export default function WhatWeDo() {
                   <li className="flex items-center gap-2"><div className="w-2 h-2 rounded-full bg-secondary"></div> Community education programs</li>
                   <li className="flex items-center gap-2"><div className="w-2 h-2 rounded-full bg-secondary"></div> Policy advocacy</li>
                 </ul>
+                {/* Hidden for now
                 <Link href="/impact-reports">
                   <button className="text-primary font-bold hover:text-secondary hover:underline">
                     Read related reports &rarr;
                   </button>
                 </Link>
+                */}
               </div>
             </div>
           ))}

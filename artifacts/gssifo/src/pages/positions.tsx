@@ -83,6 +83,18 @@ export default function Positions() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    const subject = encodeURIComponent(`Job Application: ${formData.position}`);
+    const body = encodeURIComponent(
+      `First Name: ${formData.firstName}\n` +
+      `Last Name: ${formData.lastName}\n` +
+      `Email: ${formData.email}\n` +
+      `Phone: ${formData.phone}\n` +
+      `Position Applied: ${formData.position}\n` +
+      `Resume Link: ${formData.resumeLink}\n\n` +
+      `Cover Letter:\n${formData.coverLetter}`
+    );
+    window.location.href = `mailto:info@gssifo.org?subject=${subject}&body=${body}`;
+
     setFormSubmitted(true);
     toast({
       title: "Application Received!",

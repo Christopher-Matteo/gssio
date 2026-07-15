@@ -1,5 +1,5 @@
 import { Link } from "wouter";
-import { Facebook, Twitter, Instagram, Linkedin, Mail, MapPin, Phone } from "lucide-react";
+import { Facebook, Instagram, Linkedin, Mail, MapPin, Phone } from "lucide-react";
 import logoImage from "@/assets/images/gssifo-logo.webp";
 
 export function Footer() {
@@ -20,8 +20,10 @@ export function Footer() {
               <a href="#" className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20 transition-colors" aria-label="Facebook">
                 <Facebook className="w-5 h-5" />
               </a>
-              <a href="#" className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20 transition-colors" aria-label="Twitter">
-                <Twitter className="w-5 h-5" />
+              <a href="#" className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20 transition-colors" aria-label="X (formerly Twitter)">
+                <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                  <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+                </svg>
               </a>
               <a href="#" className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20 transition-colors" aria-label="Instagram">
                 <Instagram className="w-5 h-5" />
@@ -38,8 +40,10 @@ export function Footer() {
             <ul className="space-y-4">
               <li><Link href="/who-we-are" className="text-white/80 hover:text-white transition-colors">Who We Are</Link></li>
               <li><Link href="/what-we-do" className="text-white/80 hover:text-white transition-colors">What We Do</Link></li>
+              {/* Hidden for now
               <li><Link href="/impact-reports" className="text-white/80 hover:text-white transition-colors">Impact & Reports</Link></li>
               <li><Link href="/stories" className="text-white/80 hover:text-white transition-colors">Stories from the Field</Link></li>
+              */}
               <li><Link href="/get-involved" className="text-white/80 hover:text-white transition-colors">Get Involved</Link></li>
             </ul>
           </div>
@@ -50,15 +54,15 @@ export function Footer() {
             <ul className="space-y-4 text-white/80">
               <li className="flex items-start gap-3 text-sm">
                 <MapPin className="w-5 h-5 shrink-0 text-white/60" />
-                <span>1200 International Avenue<br/>Geneva, Switzerland 1204</span>
+                <span>45, Valluvar Kottam High Rd,<br/>pONNANGIPURAM, nUNGAMBAKKAM,<br/>Chennai, Greater Chennai,<br/>Tamilnadu 600034</span>
               </li>
               <li className="flex items-center gap-3 text-sm">
                 <Phone className="w-5 h-5 shrink-0 text-white/60" />
-                <span>+41 22 730 0000</span>
+                <span>+91 91597 79659</span>
               </li>
               <li className="flex items-center gap-3 text-sm">
                 <Mail className="w-5 h-5 shrink-0 text-white/60" />
-                 <span>contact@gssifo.org</span>
+                 <span>info@gssifo.org</span>
               </li>
             </ul>
           </div>

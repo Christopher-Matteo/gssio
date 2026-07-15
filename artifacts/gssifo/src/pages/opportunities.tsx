@@ -75,6 +75,18 @@ export default function Opportunities() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    const subject = encodeURIComponent(`Volunteer Application: ${formData.opportunity}`);
+    const body = encodeURIComponent(
+      `First Name: ${formData.firstName}\n` +
+      `Last Name: ${formData.lastName}\n` +
+      `Email: ${formData.email}\n` +
+      `Phone: ${formData.phone}\n` +
+      `Preferred Role: ${formData.opportunity}\n` +
+      `Availability: ${formData.availability}\n\n` +
+      `About Yourself:\n${formData.message}`
+    );
+    window.location.href = `mailto:info@gssifo.org?subject=${subject}&body=${body}`;
+
     setFormSubmitted(true);
     toast({
       title: "Application Submitted Successfully!",
@@ -83,81 +95,15 @@ export default function Opportunities() {
   };
 
   return (
-    <div className="py-16 bg-muted/10 min-h-screen">
-      <div className="container mx-auto px-4 max-w-5xl">
+    <div className="py-16 bg-muted/10 min-h-screen flex items-center justify-center">
+      <div className="container mx-auto px-4 max-w-2xl">
         <Link href="/get-involved" className="inline-flex items-center text-primary font-bold hover:underline mb-8 group">
           <ArrowLeft className="mr-2 w-4 h-4 group-hover:-translate-x-1 transition-transform" /> Back to Get Involved
         </Link>
 
-        {/* Hero Section */}
-        <div className="flex flex-col lg:flex-row gap-12 items-center mb-16">
-          <div className="lg:w-1/2">
-            <h1 className="text-4xl sm:text-5xl font-extrabold tracking-tight text-foreground mb-6">
-              Volunteer Opportunities
-            </h1>
-            <p className="text-lg text-muted-foreground mb-6 leading-relaxed">
-              When you volunteer with GSSIFO, you are not just offering your time; you are joining a global community of over 12,000 active advocates dedicated to building sustainable and resilient environments.
-            </p>
-            <div className="flex gap-8 border-t pt-6">
-              <div>
-                <span className="text-3xl font-bold text-primary block">12k+</span>
-                <span className="text-xs uppercase tracking-wide font-semibold text-muted-foreground">Active Volunteers</span>
-              </div>
-              <div>
-                <span className="text-3xl font-bold text-secondary block">45</span>
-                <span className="text-xs uppercase tracking-wide font-semibold text-muted-foreground">Countries Involved</span>
-              </div>
-              <div>
-                <span className="text-3xl font-bold text-accent block">200k+</span>
-                <span className="text-xs uppercase tracking-wide font-semibold text-muted-foreground">Hours Logged</span>
-              </div>
-            </div>
-          </div>
-          <div className="lg:w-1/2 rounded-2xl overflow-hidden shadow-lg bg-muted border aspect-[4/3] w-full">
-            <img src={volunteerImg} alt="GSSIFO volunteers in action" className="w-full h-full object-cover" />
-          </div>
-        </div>
-
-        {/* Opportunities List */}
-        <h2 className="text-2xl sm:text-3xl font-bold mb-8 text-foreground text-center">Available Roles</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
-          {opportunitiesList.map((opp, idx) => {
-            const Icon = opp.icon;
-            return (
-              <div key={idx} className="bg-white border rounded-xl p-8 shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow">
-                <div>
-                  <div className="w-12 h-12 rounded-lg bg-primary/10 text-primary flex items-center justify-center mb-6">
-                    <Icon className="w-6 h-6" />
-                  </div>
-                  <h3 className="text-xl font-bold mb-2">{opp.title}</h3>
-                  <div className="flex flex-wrap gap-x-4 gap-y-1 mb-4 text-xs font-semibold text-muted-foreground">
-                    <span className="text-secondary">{opp.type}</span>
-                    <span>•</span>
-                    <span>{opp.commitment}</span>
-                  </div>
-                  <p className="text-muted-foreground leading-relaxed text-sm">
-                    {opp.desc}
-                  </p>
-                </div>
-                <div className="mt-8">
-                  <a href="#volunteer-form">
-                    <Button 
-                      variant="outline" 
-                      className="border-primary text-primary hover:bg-primary hover:text-white font-semibold"
-                      onClick={() => setFormData(prev => ({ ...prev, opportunity: opp.title }))}
-                    >
-                      Apply for this role
-                    </Button>
-                  </a>
-                </div>
-              </div>
-            );
-          })}
-        </div>
-
         {/* Application Form */}
-        <div id="volunteer-form" className="bg-white border rounded-xl p-8 sm:p-12 shadow-lg scroll-mt-24">
-          <div className="max-w-2xl mx-auto">
+        <div id="volunteer-form" className="bg-white border rounded-xl p-8 sm:p-12 shadow-lg w-full">
+          <div>
             {formSubmitted ? (
               <div className="text-center py-12">
                 <CheckCircle2 className="w-16 h-16 text-emerald-500 mx-auto mb-6" />

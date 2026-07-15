@@ -22,33 +22,25 @@ export default function Partner() {
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    try {
-      const apiBase = import.meta.env.VITE_API_URL || "";
-      const res = await fetch(`${apiBase}/api/partners`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData),
-      });
-      if (res.ok) {
-        setFormSubmitted(true);
-        toast({
-          title: "Partnership Inquiry Submitted!",
-          description: "Our alliances team will review your proposal and respond within 5 business days.",
-        });
-      } else {
-        toast({
-          title: "Submission failed",
-          description: "There was an error saving your partnership details. Please try again.",
-        });
-      }
-    } catch {
-      toast({
-        title: "Submission failed",
-        description: "Could not reach server. Please try again.",
-      });
-    }
+    const subject = encodeURIComponent(`Partnership Inquiry: ${formData.orgName}`);
+    const body = encodeURIComponent(
+      `Organization Name: ${formData.orgName}\n` +
+      `Contact Person: ${formData.contactName}\n` +
+      `Email: ${formData.email}\n` +
+      `Phone: ${formData.phone}\n` +
+      `Partner Type: ${formData.partnerType}\n` +
+      `Focus Area: ${formData.focusArea}\n\n` +
+      `Proposal:\n${formData.proposal}`
+    );
+    window.location.href = `mailto:info@gssifo.org?subject=${subject}&body=${body}`;
+
+    setFormSubmitted(true);
+    toast({
+      title: "Partnership Inquiry Submitted!",
+      description: "Our alliances team will review your proposal and respond within 5 business days.",
+    });
   };
 
   return (

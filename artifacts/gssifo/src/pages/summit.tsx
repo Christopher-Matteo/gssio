@@ -25,6 +25,18 @@ export default function Summit() {
     e.preventDefault();
     const generatedId = "GSS-" + Math.floor(100000 + Math.random() * 900000);
     setTicketId(generatedId);
+
+    const subject = encodeURIComponent(`Summit Registration: ${generatedId}`);
+    const body = encodeURIComponent(
+      `Ticket Reference ID: ${generatedId}\n` +
+      `Full Name: ${formData.name}\n` +
+      `Email Address: ${formData.email}\n` +
+      `Organization / Affiliation: ${formData.org}\n` +
+      `Attendance Type: ${formData.type}\n` +
+      `Ticket Class: ${formData.ticketClass}`
+    );
+    window.location.href = `mailto:info@gssifo.org?subject=${subject}&body=${body}`;
+
     setFormSubmitted(true);
     toast({
       title: "Registration Confirmed!",

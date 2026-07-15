@@ -116,11 +116,13 @@ function StoryDetail({ params }: { params: { id?: string } }) {
             <p className="text-primary-foreground/80 max-w-md">Your donation directly funds healthcare, clean water access, and education programs where they are needed most.</p>
           </div>
           <div className="flex gap-4 shrink-0 flex-wrap">
+            {/* Hidden for now
             <Link href="/donate">
-              <Button size="lg" className="bg-accent hover:bg-accent/90 text-accent-foreground font-bold rounded-lg px-8 py-4 shadow-md h-auto">
-                Donate Now
-              </Button>
-            </Link>
+               <Button size="lg" className="bg-accent hover:bg-accent/90 text-accent-foreground font-bold rounded-lg px-8 py-4 shadow-md h-auto">
+                 Donate Now
+               </Button>
+             </Link>
+             */}
             <Link href="/get-involved">
               <Button size="lg" variant="outline" className="border-2 border-white bg-transparent hover:bg-white hover:text-primary text-white font-bold rounded-lg px-8 py-4 h-auto">
                 Get Involved

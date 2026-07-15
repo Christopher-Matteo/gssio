@@ -96,6 +96,7 @@ export function Navbar() {
               </div>
             </div>
 
+            {/* Hidden for now
             <Link
               href="/impact-reports"
               className={`text-sm font-medium uppercase tracking-wide transition-colors hover:text-primary ${
@@ -113,6 +114,7 @@ export function Navbar() {
             >
               Stories
             </Link>
+            */}
             
             <Link
               href="/get-involved"
@@ -135,17 +137,19 @@ export function Navbar() {
               <Globe className="w-5 h-5" />
             </button>
 
-            <Link href="/get-involved" className="hidden lg:inline-flex">
+            <Link href="/get-involved/opportunities" className="hidden lg:inline-flex">
               <Button variant="secondary" className="font-semibold rounded-lg px-6">
                 Volunteer
               </Button>
             </Link>
 
+            {/* Hidden for now
             <Link href="/donate" className="hidden sm:inline-flex">
               <Button className="bg-accent hover:bg-accent/90 text-accent-foreground border border-accent-border font-semibold px-6 rounded-lg transition-all">
                 Donate
               </Button>
             </Link>
+            */}
             
             <button
               className="lg:hidden p-2 text-foreground"
@@ -176,26 +180,30 @@ export function Navbar() {
                   ))}
                 </div>
               </div>
+              {/* Hidden for now
               <Link href="/impact-reports" onClick={() => setMobileMenuOpen(false)} className="text-lg font-medium text-foreground uppercase tracking-wide">
                 Impact & Reports
               </Link>
               <Link href="/stories" onClick={() => setMobileMenuOpen(false)} className="text-lg font-medium text-foreground uppercase tracking-wide">
                 Stories
               </Link>
+              */}
               <Link href="/get-involved" onClick={() => setMobileMenuOpen(false)} className="text-lg font-medium text-foreground uppercase tracking-wide">
                 Get Involved
               </Link>
               <div className="mt-4 flex flex-col gap-3">
-                <Link href="/get-involved" onClick={() => setMobileMenuOpen(false)}>
+                <Link href="/get-involved/opportunities" onClick={() => setMobileMenuOpen(false)}>
                   <Button variant="secondary" className="w-full rounded-lg h-12 text-lg">
                     Volunteer
                   </Button>
                 </Link>
+                {/* Hidden for now
                 <Link href="/donate" onClick={() => setMobileMenuOpen(false)}>
                   <Button className="w-full bg-accent hover:bg-accent/90 text-accent-foreground border border-accent-border font-bold h-12 rounded-lg text-lg">
                     Donate Now
                   </Button>
                 </Link>
+                */}
               </div>
             </nav>
           </div>
