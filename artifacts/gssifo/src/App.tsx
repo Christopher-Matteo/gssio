@@ -19,6 +19,7 @@ import Legal from "@/pages/legal";
 import Donate from "@/pages/donate";
 import Contact from "@/pages/contact";
 import NotFound from "@/pages/not-found";
+import LaunchingSoon from "@/pages/LaunchingSoon";
 
 const queryClient = new QueryClient();
 
@@ -49,6 +50,12 @@ function Router() {
 }
 
 function App() {
+  const isLaunchingSoon = true;
+  
+  if (isLaunchingSoon) {
+    return <LaunchingSoon />;
+  }
+
   return (
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
